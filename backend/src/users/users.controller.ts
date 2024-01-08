@@ -10,6 +10,11 @@ export class UsersController {
 
   constructor( private userService: UsersService) { }  
 
+  @Get()
+  index() {
+    return process.env.DATABASE_HOST
+  }
+
   @Post()
   async createUser(@Body() dto: CreateUserDto): Promise<void> {
     const { name, email, password } = dto
